@@ -25,6 +25,11 @@ public class LoginServlet extends HttpServlet {
         String password = req.getParameter("password");
         if(service.checkUser(username, password)){
             req.getSession().setAttribute("username", username);
+//           logic để xác định xem người dùng có phải là admin không
+            boolean isAdmin = service.isAdmin(username);
+            if (isAdmin) {
+                req.getSession().setAttribute("role", "admin");
+            }
             resp.sendRedirect("home");
             return;
         }
