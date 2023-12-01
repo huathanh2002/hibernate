@@ -16,7 +16,7 @@
             <th>email</th>
             <th>photo</th>
             <th>trạng thái</th>
-            <th>admin</th>
+            <th>Quyền</th>
             <th></th>
         </tr>
         <c:forEach items="${list}" var="u">
