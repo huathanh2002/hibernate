@@ -60,6 +60,7 @@ public class VideoServiceImpl implements VideoService {
     public void deleteById(String id) {
 //        EntityManager em = HibernateUtil.createEntityManager();
 //        try {
+//        ssssss
 //            em.getTransaction().begin();
 //            User u = (id);
 //            em.remove(u);
