@@ -1,6 +1,7 @@
 package com.example.assignment.service.impl;
 
 //import com.example.assignment.JPAUtil;
+import com.example.assignment.entity.User;
 import com.example.assignment.entity.Video;
 import com.example.assignment.hibernate.HibernateUtil;
 import com.example.assignment.service.VideoService;
@@ -26,20 +27,49 @@ public class VideoServiceImpl implements VideoService {
     }
 
     @Override
-    public Video add(Video m) {
-        //TODO
-        return null;
+    public void add(Video u) {
+        EntityManager em = HibernateUtil.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.persist(u);
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            em.close();
+        }
     }
 
     @Override
-    public Video update(Video m) {
-        //TODO
-        return null;
+    public void update(Video u) {
+        EntityManager em = HibernateUtil.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            em.merge(u);
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            em.close();
+        }
     }
 
     @Override
     public void deleteById(String id) {
-        //TODO
+//        EntityManager em = HibernateUtil.createEntityManager();
+//        try {
+//            em.getTransaction().begin();
+//            User u = (id);
+//            em.remove(u);
+//            em.getTransaction().commit();
+//        } catch (Exception e) {
+//            em.getTransaction().rollback();
+//            e.printStackTrace();
+//        } finally {
+//            em.close();
+//        }
     }
 
     @Override

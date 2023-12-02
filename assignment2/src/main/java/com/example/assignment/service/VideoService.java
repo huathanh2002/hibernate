@@ -6,8 +6,8 @@ import java.util.List;
 
 public interface VideoService {
     Video findById(String id);
-    Video add(Video m);
-    Video update(Video m);
+    void add(Video m);
+    void update(Video m);
     void deleteById(String id);
     List<Video> findAll();
     List<Video> search(String keyword);
