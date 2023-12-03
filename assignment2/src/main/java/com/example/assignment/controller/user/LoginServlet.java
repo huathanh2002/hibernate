@@ -23,8 +23,10 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String username = req.getParameter("username");
         String password = req.getParameter("password");
+
         if(service.checkUser(username, password)){
             req.getSession().setAttribute("username", username);
+
 //           logic để xác định xem người dùng có phải là admin không
             boolean isAdmin = service.isAdmin(username);
             if (isAdmin) {

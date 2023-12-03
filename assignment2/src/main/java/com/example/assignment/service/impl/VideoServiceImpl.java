@@ -58,19 +58,18 @@ public class VideoServiceImpl implements VideoService {
 
     @Override
     public void deleteById(String id) {
-//        EntityManager em = HibernateUtil.createEntityManager();
-//        try {
-//        ssssss
-//            em.getTransaction().begin();
-//            User u = (id);
-//            em.remove(u);
-//            em.getTransaction().commit();
-//        } catch (Exception e) {
-//            em.getTransaction().rollback();
-//            e.printStackTrace();
-//        } finally {
-//            em.close();
-//        }
+        EntityManager em = HibernateUtil.createEntityManager();
+        try {
+            em.getTransaction().begin();
+            Video u = findById(id);
+            em.remove(u);
+            em.getTransaction().commit();
+        } catch (Exception e) {
+            em.getTransaction().rollback();
+            e.printStackTrace();
+        } finally {
+            em.close();
+        }
     }
 
     @Override

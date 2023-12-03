@@ -1,2 +1,2 @@
 <%@ include file="theme/navbar.jsp"%>
-<%@ include file="items.jsp"%>
+<%@ include file="itemsFavorite.jsp"%>

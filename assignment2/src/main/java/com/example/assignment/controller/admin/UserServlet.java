@@ -35,6 +35,11 @@ public class UserServlet extends HttpServlet {
 
     void viewUser(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("list", service.getAll());
+        String username = (String) req.getSession().getAttribute("username");
+        if(username == null) {
+            resp.sendRedirect("login");
+            return;
+        }
         req.getRequestDispatcher("/user/hien-thi.jsp").forward(req, resp);
     }
 

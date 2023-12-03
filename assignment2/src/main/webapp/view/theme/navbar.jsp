@@ -5,18 +5,20 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary p-0">
     <div class="navbar-nav">
         <a class='nav-item nav-link ${requestURI.contains("/home")?"active":""}' href="home">All videos</a>
-        <c:if test="${sessionScope.role == 'admin' }">
-            <!-- Hiển thị các liên kết chỉ dành cho admin -->
-            <a class='nav-item nav-link ${requestURI.contains("/user")?"active":""}' href="user">Quản Lí User</a>
-            <a class='nav-item nav-link ${requestURI.contains("/video")?"active":""}' href="video">Quản Lí Video</a>
-        </c:if>
+
 
     <%--        <a class='nav-item nav-link ${requestURI.contains("/user")?"active":""}' href="user">Quản Lí User</a>--%>
 
 <%--        <a class='nav-item nav-link ${requestURI.contains("/video")?"active":""}' href="video">Quản Lí Video</a>--%>
 
         <c:if test="${not empty sessionScope.username}">
+
             <a class='nav-item nav-link ${requestURI.contains("/favorite")?"active":""}' href="favorite">My favorite list</a>
+            <c:if test="${sessionScope.role == 'admin' }">
+                <!-- Hiển thị các liên kết chỉ dành cho admin -->
+                <a class='nav-item nav-link ${requestURI.contains("/user")?"active":""}' href="user">Quản Lí User</a>
+                <a class='nav-item nav-link ${requestURI.contains("/video")?"active":""}' href="video">Quản Lí Video</a>
+            </c:if>
         </c:if>
     </div>
     <ul class="navbar-nav ms-auto">
