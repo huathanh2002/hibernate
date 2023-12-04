@@ -17,29 +17,18 @@ public class HomeServlet extends HttpServlet {
     VideoService service = ServiceFactory.getVideoService();
 
     @Override
-//    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        String keyword = req.getParameter("keyword");
-//        if(keyword == null) keyword = "";
-//
-//        System.out.println("In home, keyword=" + keyword);
-//
-//        List<Video> items = service.search(keyword);
-//        req.setAttribute("requestURI", req.getRequestURI());
-//        req.setAttribute("items", service.findAll());
-//        req.getRequestDispatcher("/view/home.jsp").forward(req, resp);
-//    }
-//}
+
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String keyword = req.getParameter("keyword");
         if (keyword == null) {
             // Nếu không có từ khóa tìm kiếm, hiển thị toàn bộ danh sách
             List<Video> allItems = service.findAll();
-            req.setAttribute("requestURI", req.getRequestURI());
+//            req.setAttribute("requestURI", req.getRequestURI());
             req.setAttribute("items", allItems);
         } else {
             // Nếu có từ khóa tìm kiếm, thực hiện tìm kiếm và hiển thị kết quả
             List<Video> items = service.search(keyword);
-            req.setAttribute("requestURI", req.getRequestURI());
+//            req.setAttribute("requestURI", req.getRequestURI());
             req.setAttribute("items", items);
         }
         req.getRequestDispatcher("/view/home.jsp").forward(req, resp);
